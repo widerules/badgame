@@ -14,13 +14,13 @@ public class Game implements ApplicationListener {
 	SpriteBatch spriteBatch;
 	Texture texture;
 	BitmapFont font;
-	Vector2 textPosition = new Vector2(100, 100);
+	Vector2 textPosition = new Vector2(0, 200);
 	Vector2 textDirection = new Vector2(1, 1);
 
 	@Override
 	public void create() {
 		font = new BitmapFont();
-		font.setColor(Color.RED);
+		font.setColor(Color.GREEN);
 		texture = new Texture(Gdx.files.internal("data/badlogic.jpg"));
 		spriteBatch = new SpriteBatch();
 
@@ -50,8 +50,8 @@ public class Game implements ApplicationListener {
 		if (textPosition.y < 0 || textPosition.y > Gdx.graphics.getHeight())
 			textDirection.y = -textDirection.y;
 
-		textPosition.add(textDirection.tmp().mul(Gdx.graphics.getDeltaTime())
-				.mul(60));
+		// textPosition.add(textDirection.tmp().mul(Gdx.graphics.getDeltaTime())
+		// .mul(60));
 
 		spriteBatch.begin();
 		spriteBatch.setColor(Color.WHITE);
@@ -67,7 +67,7 @@ public class Game implements ApplicationListener {
 	@Override
 	public void resize(int width, int height) {
 		spriteBatch.getProjectionMatrix().setToOrtho2D(0, 0, width, height);
-		textPosition.set(0, 0);
+		textPosition.set(0, 200);
 
 	}
 
